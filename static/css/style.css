@@ -1,0 +1,78 @@
+.container-sm {
+    max-width: 600px;
+    margin: 0 auto;
+}
+.form-control{
+    border-color: rgb(113, 113, 113);
+}
+.form-control:focus {
+    border-color: black;
+    box-shadow: none;
+} 
+.response-container {
+    position: relative;
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+
+.response-container textarea {
+    width: 100%;
+    padding-right: 20px;
+    background-color: #e7e7e7;
+    border: none;
+}
+
+.response-container textarea:focus{
+    background-color: #e7e7e7;
+}
+
+.response-container textarea {
+    -ms-overflow-style: none;
+    scrollbar-width: none; 
+}
+
+.response-container textarea::-webkit-scrollbar {
+    display: none;
+}
+.response-container button {
+    position: absolute;
+    color: #303030;
+    text-decoration: underline;
+    top: 0px;
+    right: 0px;
+    padding: 5px;
+    background-color: #f8f9fa;
+    border: none;
+    font-size: 0.475rem;
+    cursor: pointer;
+    background: rgba(100, 100, 100, 0.0);
+}
+
+#add{
+    min-height: 100px;
+    resize: none;
+}
+.my_popover{
+    display: inline-block;
+    text-align: center;
+    background: #ffffff;
+    border-radius: 100%;
+    font-size: 10px;
+    border: none;
+    vertical-align: middle;
+    color: #6b6b6b;
+    background-color: #e7e7e7;
+}
+.my_popover:hover{
+    background: #c9c9c9;
+}
+.custom-popover {
+    --bs-popover-max-width: 200px;
+    --bs-popover-body-padding-x: 2px;
+    --bs-popover-body-padding-y: 2px;
+    --bs-popover-bg: rgba(255, 255, 255, 0.9);
+}
+
+#error{
+    display: none;    
+}
