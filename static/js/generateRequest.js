@@ -6,6 +6,28 @@ document.querySelector('.myForm').addEventListener('submit', async function (eve
     const typingElement = document.querySelector('.response');
     const originalButtonContent = submitButton.innerHTML;
 
+    function sanitizeInput(input) {
+        const temp = document.createElement('div');
+        temp.textContent = input;
+        return temp.innerHTML;
+    }
+
+    function validateInput(input) {
+        return input && input.trim().length > 0;
+    }
+
+    const formData = new FormData(this);
+    const name = sanitizeInput(formData.get('name'));
+    const holiday = sanitizeInput(formData.get('holiday'));
+    const description = sanitizeInput(formData.get('description'));
+    const style = sanitizeInput(formData.get('style'));
+
+    if (!validateInput(name) || !validateInput(holiday) || !validateInput(style)) {
+        errorAlert.textContent = 'Ошибка: все поля, должны быть заполнены!';
+        errorAlert.style.display = 'block';
+        return;
+    }
+
     submitButton.disabled = true;
     submitButton.innerHTML = `
         Пишу поздравление
@@ -15,17 +37,16 @@ document.querySelector('.myForm').addEventListener('submit', async function (eve
     errorAlert.style.display = 'none';
 
     try {
-        const formData = new FormData(this);
         const response = await fetch("http://127.0.0.1:8000/generate-congratulation", {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
-                name: formData.get('name'),
-                holiday: formData.get('holiday'),
-                description: formData.get('description'),
-                style: formData.get('style')
+                name: name,
+                holiday: holiday,
+                description: description,
+                style: style
             })
         });
 
@@ -34,7 +55,7 @@ document.querySelector('.myForm').addEventListener('submit', async function (eve
         }
 
         const data = await response.json();
-        const congratulationText = data.congratulation;
+        const congratulationText = sanitizeInput(data.congratulation);
 
         typingElement.value = '';
         typingElement.style.overflowY = 'auto';
@@ -45,7 +66,6 @@ document.querySelector('.myForm').addEventListener('submit', async function (eve
                 typingElement.value += congratulationText[i];
                 i++;
                 
-                // Прокручиваем текст внутри textarea вниз
                 typingElement.scrollTop = typingElement.scrollHeight;
                 
                 requestAnimationFrame(typeText);
@@ -58,6 +78,7 @@ document.querySelector('.myForm').addEventListener('submit', async function (eve
         typeText();
     } catch (error) {
         console.error('Ошибка:', error);
+        errorAlert.textContent = 'Ошибка при генерации поздравления!';
         errorAlert.style.display = 'block';
         submitButton.disabled = false;
         submitButton.innerHTML = originalButtonContent;
