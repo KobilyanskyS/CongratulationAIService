@@ -1,5 +1,5 @@
 document.querySelector('#pLinkEmail').addEventListener('click', function () {
-    document.querySelector('#feedBackForm').innerHTML = `
+    document.querySelector('#functionsForm').innerHTML = `
         <div id="emailForm">
             <div class="d-grid gap-2 mt-3">
                 <label for="email" class="form-label">Оставьте ваш адрес электронной почты, мы отправим уведомление, когда функции будут готовы</label>
@@ -10,7 +10,7 @@ document.querySelector('#pLinkEmail').addEventListener('click', function () {
         </div>`;
 
     const emailInput = document.querySelector('#email');
-    const emailError = document.querySelector('#feedbackError');
+    const emailError = document.querySelector('#functionsFormError');
     const sendButton = document.querySelector('.notification');
 
     sendButton.addEventListener('click', async function (event) {
@@ -55,7 +55,7 @@ document.querySelector('#pLinkEmail').addEventListener('click', function () {
 });
 
 document.querySelector('#pLinkPhone').addEventListener('click', function () {
-    document.querySelector('#feedBackForm').innerHTML = `
+    document.querySelector('#functionsForm').innerHTML = `
         <div id="phoneForm">
             <div class="d-grid gap-2 mt-3">
                 <label for="phone" class="form-label">Оставьте ваш номер телефона, мы отправим уведомление, когда функции будут готовы</label>
@@ -66,7 +66,7 @@ document.querySelector('#pLinkPhone').addEventListener('click', function () {
         </div>`;
 
     const phoneInput = document.querySelector('#phone');
-    const phoneError = document.querySelector('#feedbackError');
+    const phoneError = document.querySelector('#functionsFormError');
     const sendButton = document.querySelector('.notification');
 
     sendButton.addEventListener('click', async function (event) {

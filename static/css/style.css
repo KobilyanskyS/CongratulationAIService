@@ -9,46 +9,66 @@
     border-color: black;
     box-shadow: none;
 } 
+.form-select{
+    border-color: rgb(113, 113, 113);
+}
+.form-select:focus{
+    border-color: black;
+    background-color: #ffffff;
+    box-shadow: none;
+} 
 .response-container {
     position: relative;
     margin-top: 20px;
-    margin-bottom: 30px;
+    margin-bottom: 10px;
+}
+
+.toolbar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 25px;
+    background-color: #DBDDE0;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding-right: 15px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.toolbar button {
+    color: #303030;
+    background: transparent;
+    border: none;
+    font-size: 0.775rem;
+    cursor: pointer;
+    padding: 5px;
+    margin-top: 2px;
 }
 
 .response-container textarea {
     width: 100%;
     height: 190px;
-    padding-right: 20px;
-    background-color: #e7e7e7;
+    background-color: #DBDDE0;
     border: none;
+    font-size: 1rem;
+    padding-top: 25px;
+    box-sizing: border-box;
     -ms-overflow-style: none;
-    scrollbar-width: none; 
-}
-
-.response-container textarea:focus{
-    background-color: #e7e7e7;
+    scrollbar-width: none;
+    resize: none;
+    overflow-y: auto;
 }
 
 .response-container textarea::-webkit-scrollbar {
     display: none;
 }
-.response-container button {
-    position: absolute;
-    color: #303030;
-    text-decoration: underline;
-    top: 0px;
-    right: 0px;
-    padding: 5px;
-    background-color: #f8f9fa;
-    border: none;
-    font-size: 0.475rem;
-    cursor: pointer;
-    background: rgba(100, 100, 100, 0.0);
-}
 
-#add{
-    min-height: 100px;
-    resize: none;
+
+.response-container textarea:focus{
+    background-color: #DBDDE0;
 }
 .my_popover{
     display: inline-block;
@@ -74,7 +94,7 @@
 #error{
     display: none;    
 }
-#feedbackError{
+#functionsFormError{
     display: none;    
 }
 
@@ -85,3 +105,22 @@
 .p-link:hover{
     text-decoration: underline;
 }
+
+#feedback{
+    height: 150px;
+    resize: none;
+}
+
+#feedBackFormError{
+    display: none;
+}
+
+#cb-cookie-banner {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: 999;
+    border-radius: 0;
+    display: none;
+  }

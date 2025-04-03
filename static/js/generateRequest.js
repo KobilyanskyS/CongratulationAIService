@@ -37,7 +37,7 @@ document.querySelector('.myForm').addEventListener('submit', async function (eve
     errorAlert.style.display = 'none';
 
     try {
-        const response = await fetch("http://127.0.0.1:8000/generate-congratulation", {
+        const response = await fetch("http://127.0.0.1:8000/generate_congratulation", {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
